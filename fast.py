@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException, UploadFile, File
-import uuid
+from pydantic import BaseModel
 import requests
 from werkzeug.utils import secure_filename
 import json
@@ -15,6 +15,11 @@ app = FastAPI()
 database_file = "database.json"
 database = db.load(database_file)
 settings = config.load("settings.json")
+
+
+# Define the ChatResponse model
+class ChatResponse(BaseModel):
+    response: str
 
 
 # Function to find jobs
@@ -47,6 +52,7 @@ def custom_job_finder_state(query: str):
 async def chat(chat: Chat):
     # Combine the functionality of new_chat, load_chat, send_message, and get_response here
     pass
+
 
 @app.post("/upload", responses={200: {"model": UploadResponse}})
 async def upload(file: UploadFile = File(...)):
