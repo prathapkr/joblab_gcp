@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,17 +9,18 @@
     <script src="https://unpkg.com/htmx.org@1.9.2"></script>
     <link rel="stylesheet" href="/static/style.css" />
 </head>
+
 <body>
     <nav>
-        <button hx-post="/new_chat"
-                hx-target="#chats"
-                hx-swap="afterbegin"
-                >+ New chat</button>
-
+        <div class="logo-container">
+            <img src="/static/images/logo.png" alt="JobGPT Logo" class="logo">
+        </div>
+        <button hx-post="/new_chat" hx-target="#chats" hx-swap="afterbegin">+ New chat</button>
         <div id="chats" hx-get="/conversations" hx-trigger="load"></div>
     </nav>
     <main>
 
     </main>
 </body>
+
 </html>

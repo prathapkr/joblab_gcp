@@ -1,1 +1,6 @@
-<div class="assistant message">{{ message.content }}</div>
+<div class="assistant message">
+    <div class="message-header">
+        <span class="message-author">JobGPT:</span>
+    </div>
+    <div class="message-content">{{ message.content | safe }}</div>
+</div>
